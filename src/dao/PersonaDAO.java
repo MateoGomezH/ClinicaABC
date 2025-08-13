@@ -65,7 +65,6 @@ public class PersonaDAO {
     }
 
     public void eliminarPersona(String documento) {
-        // Verifica si hay mascotas asociadas
         String sqlMascotas = "SELECT COUNT(*) FROM Mascota WHERE idDueño = ?";
         try (PreparedStatement psMascotas = conn.prepareStatement(sqlMascotas)) {
             psMascotas.setString(1, documento);
@@ -79,7 +78,6 @@ public class PersonaDAO {
             return;
         }
 
-        // Si no hay mascotas asociadas, elimina la persona
         String sql = "DELETE FROM Persona WHERE documento = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, documento);

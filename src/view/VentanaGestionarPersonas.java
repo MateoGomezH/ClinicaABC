@@ -95,7 +95,6 @@ public class VentanaGestionarPersonas extends JFrame {
         btnLimpiar.setBounds(290, 350, 80, 25);
         add(btnLimpiar);
 
-        // Acciones de los botones
         btnRegistrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 registrarPersona();
@@ -176,7 +175,6 @@ public class VentanaGestionarPersonas extends JFrame {
 
     private void eliminarPersona() {
         String documento = txtDocumento.getText();
-        // Antes de mostrar mensaje de éxito, verificamos si realmente se eliminó
         int mascotasAsociadas = controlador.cantidadMascotasPorPersona(documento);
         if (mascotasAsociadas > 0) {
             textAreaResultados.setText("No se puede eliminar la persona porque tiene mascotas asociadas.");

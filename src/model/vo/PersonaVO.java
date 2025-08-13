@@ -7,7 +7,7 @@ public class PersonaVO {
     private String telefono;
     private int id;
 
-
+    /*
     public PersonaVO(int id, String nombre, String apellido, String documento, String telefono) {
         this.id = id;
         this.nombre = nombre;
@@ -15,7 +15,7 @@ public class PersonaVO {
         this.documento = documento;
         this.telefono = telefono;
     }
-
+*/
 
     public PersonaVO(String documento, String nombre, String apellido, String telefono) {
         this.documento = documento;
@@ -68,7 +68,7 @@ public class PersonaVO {
     @Override
     public String toString() {
         return "Nombre: " + nombre +
-               ", Apellido: " + apellido +
+                ", Apellido: " + apellido +
                ", Documento: " + documento +
                ", Teléfono: " + telefono +
                ", ID: " + id;
