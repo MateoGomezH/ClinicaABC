@@ -7,6 +7,7 @@ import model.vo.PersonaVO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class VentanaGestionarMascotas extends JFrame {
 
@@ -207,7 +208,12 @@ public class VentanaGestionarMascotas extends JFrame {
     }
 
     private void consultarListaMascotas() {
-        String lista = controlador.consultarListaMascotas();
-        textAreaResultados.setText(lista);
+        List<MascotaVO> mascotas = controlador.consultarListaMascotas();
+        if (mascotas.isEmpty()) {
+            textAreaResultados.setText("No hay mascotas registradas.");
+        } else {
+            TablaMascotas tabla = new TablaMascotas(mascotas);
+            tabla.setVisible(true);
+        }
     }
 }
