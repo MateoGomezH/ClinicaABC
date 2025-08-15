@@ -34,16 +34,8 @@ public class Controlador {
         personaDAO.eliminarPersona(documento);
     }
 
-    public String consultarListaPersonas() {
-        List<PersonaVO> personas = personaDAO.consultarListaPersonas();
-        if (personas.isEmpty()) {
-            return "No hay personas registradas.";
-        }
-        StringBuilder lista = new StringBuilder();
-        for (PersonaVO persona : personas) {
-            lista.append(persona.toString()).append("\n");
-        }
-        return lista.toString();
+    public List<PersonaVO> consultarListaPersonas() {
+        return personaDAO.consultarListaPersonas();
     }
 
     // Métodos para Mascota
@@ -63,16 +55,8 @@ public class Controlador {
         mascotaDAO.eliminarMascota(nombre);
     }
 
-    public String consultarListaMascotas() {
-        List<MascotaVO> mascotas = mascotaDAO.listarMascotas();
-        if (mascotas.isEmpty()) {
-            return "No hay mascotas registradas.";
-        }
-        StringBuilder lista = new StringBuilder();
-        for (MascotaVO mascota : mascotas) {
-            lista.append(mascota.toString()).append("\n");
-        }
-        return lista.toString();
+    public List<MascotaVO> consultarListaMascotas() {
+        return mascotaDAO.listarMascotas();
     }
 
     public int cantidadMascotasPorPersona(String documento) {

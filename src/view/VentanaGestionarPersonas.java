@@ -6,6 +6,7 @@ import model.vo.PersonaVO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class VentanaGestionarPersonas extends JFrame {
 
@@ -185,7 +186,12 @@ public class VentanaGestionarPersonas extends JFrame {
     }
 
     private void consultarListaPersonas() {
-        String lista = controlador.consultarListaPersonas();
-        textAreaResultados.setText(lista);
+        List<PersonaVO> personas = controlador.consultarListaPersonas();
+        if (personas.isEmpty()) {
+            textAreaResultados.setText("No hay personas registradas.");
+        } else {
+            TablaPersonas tabla = new TablaPersonas(personas);
+            tabla.setVisible(true);
+        }
     }
 }
